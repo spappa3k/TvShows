@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h2 class="mb-4">Films</h2>
+    <div class="input-group w-50 mx-auto">
+      <input type="text" class="form-control" placeholder="Find movie" [(ngModel)]="inputValue">
+      <div class="input-group-append">
+        <button class="btn btn-primary" (click)="submit()" [disabled]="!inputValue">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container mt-4">
+    <div class="row">
+      <ng-container *ngFor="let film of Searched"; let i="index">
+      <div class="col-md-4 entire_card" *ngIf="film.show.image!=null" (click)="goDetails(film)" [routerLink]="['details/', film.show.externals.imdb]">
+        <div class="card mb-4 shadow-sm" >
+          <div class="card-body">
+            <img [src]="film.show.image.medium" class="card-img-top">
+            <h5 class="card-title mt-2">{{ film.show.name }}</h5>
+            <div class="card-text">
+              <ng-container *ngIf="film.show.genres.length>0">
+              <h6>Genres:</h6> 
+              <span *ngFor="let genre of film.show.genres; let i = index" class="genre">
+              {{ genre }}<span *ngIf="i < film.show.genres.length - 1">, </span>
+            </span>
+          </ng-container>
+          </div>
+          <h6>Premiered: </h6> 
+            <span class="card-text premiered">{{film.show.premiered}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    </div>
+  </div>

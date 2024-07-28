@@ -1,0 +1,36 @@
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card" *ngIf="chosen">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img [src]="chosen.image.original" class="card-img" style="width: 100%; height: auto;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title">{{ chosen.name }}</h2>
+              <ng-container *ngIf="chosen.genres">
+              <p class="card-text"><strong>Genre:</strong> 
+                <span *ngFor="let genre of chosen.genres; let i = index" class="genre">
+                  {{ genre }}<span *ngIf="i < chosen.genres.length - 1">, </span>
+                </span>
+              </p>
+            </ng-container>
+              <p class="card-text"><strong>Premiered:</strong> {{ chosen.premiered }}</p>
+              <p class="card-text">
+                <ng-container *ngIf="chosen.rating.average">
+                <strong>Rating:</strong> 
+                  {{ chosen.rating.average }} / 10
+                </ng-container>
+              </p>
+              <div [innerHTML]="chosen.summary" style="font-family:Georgia, 'Times New Roman', Times, serif"></div>
+            </div>
+            <div class="card-footer" *ngIf="chosen.officialSite">
+              <a  [href]="chosen.officialSite" class="btn btn-primary" target="_blank">Official Site</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

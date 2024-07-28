@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+   font-size: 0.9rem;
+}
+
+.genre, .premiered{
+    font-size: 0.9em;
+}
+
+ h5, h2{
+    font-family: RingBearer;
+ }
+
+ h6{
+display: inline;
+ }
+ .entire_card:hover{
+background-color: green;
+ }
+
+ @font-face{
+    font-family: RingBearer;
+    src:url("./Fonts/Ringbearer.ttf");
+ }
