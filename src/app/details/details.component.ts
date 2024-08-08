@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModelMovie } from '../models/models';
 import { FilmsService } from '../films.service';
-import { SingleModel } from '../models/modelsSingle';
+import {SingleModel} from '../models/modelsSingle';
 
 @Component({
   selector: 'app-details',
